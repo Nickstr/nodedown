@@ -18,10 +18,25 @@ class Youtube implements NodeInterface
 
     private function render($node, $options)
     {
-        $height = isset($options['height']) ? "height=\"{$options['height']}\"" : null;
-        $width = isset($options['width']) ? "width=\"{$options['width']}\"" : null;
-        $fullscreen = isset($options['allowfullscreen']) ? "allowfullscreen=\"1\"" : null;
+        $height = $this->getHeight($options);
+        $width = $this->getWidth($options);
+        $fullscreen = $this->allowFullScreen($options);
 
         return "<iframe {$height} {$width} {$fullscreen} src=\"{$node}\"></iframe>";
+    }
+
+    private function getHeight($options)
+    {
+        return isset($options['height']) ? "height=\"{$options['height']}\"" : null;
+    }
+
+    private function getWidth($options)
+    {
+        return isset($options['width']) ? "width=\"{$options['width']}\"" : null;
+    }
+
+    private function allowFullScreen($options)
+    {
+        return isset($options['allowfullscreen']) ? "allowfullscreen=\"1\"" : null;
     }
 }

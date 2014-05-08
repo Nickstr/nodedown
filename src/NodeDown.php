@@ -1,8 +1,6 @@
 <?php namespace Nickstr\NodeDown;
 
 use Nickstr\NodeDown\Nodes\NodeTypeNotFoundException;
-use Nickstr\NodeDown\Nodes\Types\Header;
-use Nickstr\NodeDown\Nodes\Types\Youtube;
 use Nickstr\NodeDown\Storage\StorageProviderInterface;
 
 class NodeDown
@@ -13,7 +11,6 @@ class NodeDown
     public function __construct(StorageProviderInterface $storageProvider)
     {
         $this->storageProvider = $storageProvider;
-        $this->addNodeTypes();
     }
 
     public function render($page, $name, $type, array $options = [])
@@ -28,11 +25,5 @@ class NodeDown
     public function addNodeType($name, $type)
     {
         $this->nodeTypes[$name] = $type;
-    }
-
-    private function addNodeTypes()
-    {
-        $this->addNodeType('header', new Header());
-        $this->addNodeType('youtube', new Youtube());
     }
 }
