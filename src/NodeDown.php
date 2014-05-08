@@ -16,7 +16,7 @@ class NodeDown
     public function render($page, $name, $type, array $options = [])
     {
         if( ! isset($this->nodeTypes[$type])) {
-            throw new NodeTypeNotFoundException('No node type found for the type: ' . $type);
+            throw new NodeTypeNotFoundException('No node renderer found for the type: ' . $type);
         }
 
         return $this->nodeTypes[$type]->get($page, $name, $options, $this->storageProvider);
