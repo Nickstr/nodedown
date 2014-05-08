@@ -1,5 +1,7 @@
 <?php namespace Nickstr\NodeDown\Nodes\Types;
 
-class Image
+use Nickstr\NodeDown\Nodes\NodeInterface;
+
+class Image implements NodeInterface
 {
 } 

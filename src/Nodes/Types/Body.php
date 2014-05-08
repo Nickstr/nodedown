@@ -1,5 +1,7 @@
 <?php  namespace Nickstr\NodeDown\Nodes\Types;
 
-class Body
+use Nickstr\NodeDown\Nodes\NodeInterface;
+
+class Body implements NodeInterface
 {
 } 

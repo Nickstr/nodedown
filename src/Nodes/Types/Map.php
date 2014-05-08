@@ -1,5 +1,7 @@
 <?php  namespace Nickstr\NodeDown\Nodes\Types; 
 
-class Map
+use Nickstr\NodeDown\Nodes\NodeInterface;
+
+class Map implements NodeInterface
 {
 } 
