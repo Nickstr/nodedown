@@ -3,5 +3,4 @@
 interface StorageProviderInterface
 {
     public function get($page, $key);
-    public function put($page, $key);
 } 

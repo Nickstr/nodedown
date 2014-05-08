@@ -9,7 +9,12 @@ class NodeDownTest extends \UnitTest
     public function setUp()
     {
         parent::setUp();
-        $this->root = vfsStream::setup('exampleDir');
+    }
+
+    protected function tearDown()
+    {
+        @unlink(__DIR__.'/foo/bar.md');
+        @rmdir(__DIR__.'/foo');
     }
 
     public function test_can_create()
@@ -50,7 +55,7 @@ class NodeDownTest extends \UnitTest
     private function getNodeDown($storage = null)
     {
         if( !$storage) {
-            $config = ['path' => 'storage'];
+            $config = ['path' => __DIR__];
             $storage = new Markdown($config);
         }
         return new NodeDown($storage);

@@ -13,14 +13,15 @@ class Youtube implements NodeInterface
             throw new NodeTypeNotFoundException("No node found for the page \"{$page}\" using the name \"{$name}\"");
         }
 
-        return $this->render($node, $options);
+        return preg_replace( '/\s+/', ' ', $this->render($node, $options));
     }
 
     private function render($node, $options)
     {
         $height = isset($options['height']) ? "height=\"{$options['height']}\"" : null;
         $width = isset($options['width']) ? "width=\"{$options['width']}\"" : null;
+        $fullscreen = isset($options['allowfullscreen']) ? "allowfullscreen=\"1\"" : null;
 
-        return "<iframe {$height} {$width} src=\"{$node}\"></iframe>";
+        return "<iframe {$height} {$width} {$fullscreen} src=\"{$node}\"></iframe>";
     }
 }
