@@ -11,7 +11,9 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "michelf/php-markdown": "1.4.*@dev"
+        "symfony/yaml": "2.5.*@dev",
+        "michelf/php-markdown": "1.4.*@dev",
+        "mustache/mustache": "dev-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",

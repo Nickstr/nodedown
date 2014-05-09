@@ -1,0 +1,6 @@
+- name: header
+  - type: image
+  - template: image
+  - image_type: large
+  - location: /path/to/image.jpg
+  - alt: beep boop
