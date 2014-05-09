@@ -19,11 +19,19 @@ class NodeDown
             throw new NodeTypeNotFoundException('No node renderer found for the type: ' . $type);
         }
 
-        return $this->nodeTypes[$type]->get($page, $name, $options, $this->storageProvider);
+        $node = $this->nodeTypes[$type]->get($page, $name, $options, $this->storageProvider);
+        return $this->renderOptions($node);
     }
 
     public function addNodeType($name, $type)
     {
         $this->nodeTypes[$name] = $type;
+    }
+
+    private function renderOptions($node)
+    {
+        $optionRenderer = new OptionRenderer($node);
+
+        return $optionRenderer->render();
     }
 }
