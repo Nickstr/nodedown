@@ -1,8 +1,0 @@
-- types
-  - image
-    - small
-      - width:  200
-      - height: 200
-    - large
-      - width: 1200
-      - height: 400

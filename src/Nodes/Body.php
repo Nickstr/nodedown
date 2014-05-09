@@ -1,4 +1,4 @@
-<?php  namespace Nickstr\NodeDown\Types;
+<?php namespace Nickstr\NodeDown\Nodes;
 
 use League\Flysystem\Adapter\Local as Adapter;
 use League\Flysystem\Filesystem;

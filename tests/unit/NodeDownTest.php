@@ -1,27 +1,20 @@
 <?php
 
-use Nickstr\NodeDown\Types\Body;
-use Nickstr\NodeDown\Types\Image;
-
 class NodeDownTest extends  \UnitTest
 {
-    public function test_can_render_body()
-    {
-        $parser = new \Nickstr\NodeDown\Parsers\NodeParser();
-        $parser->addParser('body', new Body());
-
-        $nodeDown = new \Nickstr\NodeDown\NodeDown($parser);
-
-        $nodeDown->get('home.body');
-    }
-
     public function test_can_render_image()
     {
-        $parser = new \Nickstr\NodeDown\Parsers\NodeParser();
-        $parser->addParser('image', new Image());
+        $config = [
+            'templates'     => '/vagrant/nodes/templates',
+            'cache'         => '/vagrant/nodes/cache'
+        ];
 
-        $nodeDown = new \Nickstr\NodeDown\NodeDown($parser);
+
+        $parser = new \Nickstr\NodeDown\Parsers\YMLParser();
+        $renderer = new \Nickstr\NodeDown\Renderers\TwigRenderer($config);
+
+        $nodeDown = new \Nickstr\NodeDown\NodeDown($parser, $renderer);
 
         $nodeDown->get('home.header');
     }
-} 
+}

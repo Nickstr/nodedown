@@ -1,4 +1,3 @@
-- name: body
-  type: body
-  location: nodes/content/home/body.md
-  markdown: true
+type: body
+location: nodes/content/home/body.md
+markdown: true
