@@ -27,6 +27,10 @@ class Image
         ));
 
         $template = $twig->loadTemplate($template);
-        $template->render();
+        $template->render([
+            'alt' => 'test',
+            'src' => 'test',
+            'title' => 'test'
+        ]);
     }
 } 
